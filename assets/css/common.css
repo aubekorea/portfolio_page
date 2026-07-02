@@ -1,0 +1,173 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+/*reset*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul, li {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+img {
+	vertical-align:middle;
+}
+.clearfix:after{
+	content:"";display:block;clear:both;
+}
+.hidden{
+	display:fixed;
+	top:999em;
+}
+a{
+	color:inherit;
+	text-decoration:none;
+	outline:none;
+}
+hr{
+	margin:0;
+	padding:0;
+	border:1px solid #000;
+}
+
+/*style*/
+.all_img_con{width:100%;}
+.all_img_con img{width:2000px;position: relative;left: 50%;transform: translateX(-50%);}
+
+.mt0{margin-top:0 !important;}
+.mt10{margin-top:10px;}
+.mt20{margin-top:20px;}
+.mt30{margin-top:30px;}
+.mt40{margin-top:40px;}
+.mt50{margin-top:50px;}
+.mt60{margin-top:60px;}
+.mt70{margin-top:70px;}
+.mt80{margin-top:80px;}
+.mt90{margin-top:90px;}
+.mt100{margin-top:100px;}
+
+.mb0{margin-bottom:0 !imortant;}
+.mb10{margin-bottom:10px;}
+.mb20{margin-bottom:20px;}
+.mb30{margin-bottom:30px;}
+.mb40{margin-bottom:40px;}
+.mb50{margin-bottom:50px;}
+.mb60{margin-bottom:60px;}
+.mb70{margin-bottom:70px;}
+.mb80{margin-bottom:80px;}
+.mb90{margin-bottom:90px;}
+.mb100{margin-bottom:100px;}
+.mb130{margin-bottom:130px;}
+
+.pt10{padding-top:10px;}
+.pt20{padding-top:20px;}
+.pt30{padding-top:30px;}
+.pt40{padding-top:40px;}
+.pt50{padding-top:50px;}
+.pt60{padding-top:60px;}
+.pt70{padding-top:70px;}
+.pt80{padding-top:80px;}
+.pt90{padding-top:90px;}
+.pt100{padding-top:100px;}
+.pt130{padding-top:130px;}
+
+.pb10{padding-bottom:10px;}
+.pb20{padding-bottom:20px;}
+.pb30{padding-bottom:30px;}
+.pb40{padding-bottom:40px;}
+.pb50{padding-bottom:50px;}
+.pb60{padding-bottom:60px;}
+.pb70{padding-bottom:70px;}
+.pb80{padding-bottom:80px;}
+.pb90{padding-bottom:90px;}
+.pb100{padding-bottom:100px;}
+.pb130{padding-bottom:130px;}
+
+@media all and (max-width:800px){
+
+.mt10{margin-top:1vw;}
+.mt20{margin-top:3vw;}
+.mt30{margin-top:4vw;}
+.mt40{margin-top:5vw;}
+.mt50{margin-top:6vw;}
+.mt60{margin-top:8vw;}
+.mt70{margin-top:9vw;}
+.mt80{margin-top:10vw;}
+.mt90{margin-top:11vw;}
+.mt100{margin-top:13vw;}
+
+.mb10{margin-bottom:1vw;}
+.mb20{margin-bottom:3vw;}
+.mb30{margin-bottom:4vw;}
+.mb40{margin-bottom:5vw;}
+.mb50{margin-bottom:6vw;}
+.mb60{margin-bottom:8vw;}
+.mb70{margin-bottom:9vw;}
+.mb80{margin-bottom:10vw;}
+.mb90{margin-bottom:11vw;}
+.mb100{margin-bottom:13vw;}
+.mb130{margin-bottom:16vw;}
+
+.pt10{padding-top:1vw;}
+.pt20{padding-top:3vw;}
+.pt30{padding-top:4vw;}
+.pt40{padding-top:5vw;}
+.pt50{padding-top:6vw;}
+.pt60{padding-top:8vw;}
+.pt70{padding-top:9vw;}
+.pt80{padding-top:10vw;}
+.pt90{padding-top:11vw;}
+.pt100{padding-top:13vw;}
+.pt130{padding-top:16vw;}
+
+.pb10{padding-bottom:1vw;}
+.pb20{padding-bottom:3vw;}
+.pb30{padding-bottom:4vw;}
+.pb40{padding-bottom:5vw;}
+.pb50{padding-bottom:6vw;}
+.pb60{padding-bottom:8vw;}
+.pb70{padding-bottom:9vw;}
+.pb80{padding-bottom:10vw;}
+.pb90{padding-bottom:11vw;}
+.pb100{padding-bottom:13vw;}
+.pb130{padding-bottom:16vw;}
+
+}
