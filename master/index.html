@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>오브 산부인과 관리자페이지</title>
+  <link rel="stylesheet" href="css/master.css" />
+</head>
+<body>
+  <main class="admin_login_window">
+    <section class="login_box" aria-label="관리자 로그인">
+      <div class="brand">
+        <a href="../index.html" aria-label="오브 산부인과 홈으로 이동">AUBE</a>
+        <p>오브 산부인과 관리자페이지</p>
+      </div>
+
+      <form class="login_form" name="WriteFrm" action="loginchk.php" method="post">
+        <ul>
+          <li>
+            <label for="m_id">관리자 아이디</label>
+            <input id="m_id" type="text" name="m_id" maxlength="20" placeholder="관리자 아이디" autocomplete="username" autofocus />
+          </li>
+          <li>
+            <label for="m_pw">관리자 비밀번호</label>
+            <input id="m_pw" type="password" name="m_pw" maxlength="20" placeholder="관리자 비밀번호" autocomplete="current-password" />
+          </li>
+        </ul>
+        <p class="login_notice" role="status" aria-live="polite"></p>
+        <button class="login_btn" type="submit">LOGIN</button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    document.querySelector(".login_form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      document.querySelector(".login_notice").textContent = "관리자 인증은 서버 연동 후 사용 가능합니다.";
+    });
+  </script>
+</body>
+</html>
