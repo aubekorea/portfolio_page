@@ -750,7 +750,8 @@
   background: #A66631;
 }
 
-.quick.new li a {
+.quick.new li a,
+.quick.new li button {
   display: flex;
   position: relative;
   align-items: center;
@@ -759,8 +760,11 @@
   height: 100%;
   box-sizing: border-box;
   padding: 0;
+  border: 0;
+  background: transparent;
   color: #fff;
   text-align: center;
+  cursor: pointer;
 }
 
 @media all and (min-width: 1301px) {
