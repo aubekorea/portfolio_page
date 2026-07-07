@@ -556,7 +556,16 @@
   }
 
   .top_btn_box {
-    display: none;
+    display: block;
+    right: 2%;
+    bottom: calc(2% + 22.5em + 25px);
+    z-index: 101;
+  }
+
+  .top_btn {
+    width: 4.5em;
+    height: 4.5em;
+    background-size: 12vw auto;
   }
 
   .fix_btn_box {
