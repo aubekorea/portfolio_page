@@ -100,6 +100,125 @@
       $("html, body").stop().animate({ scrollTop: 0 }, 500);
     });
 
+    function configureQuickMenu() {
+      var $quick = $(".quick.new").first();
+
+      if (!$quick.length) {
+        return;
+      }
+
+      var mobileQuery = window.matchMedia ? window.matchMedia("(max-width: 960px)") : null;
+      var $toggle = $(".quick_toggle_btn").first();
+      var $footer = $(".footer").first();
+      var $topButtonBox = $(".top_btn_box");
+
+      if (!$toggle.length) {
+        $toggle = $('<button type="button" class="quick_toggle_btn" aria-label="퀵메뉴 펼치기" aria-expanded="false"><span></span></button>');
+        $quick.after($toggle);
+      }
+
+      function isMobileQuick() {
+        return mobileQuery ? mobileQuery.matches : $window.width() <= 960;
+      }
+
+      function closeQuick() {
+        $quick.removeClass("is-open");
+        $toggle.removeClass("is-open").attr({
+          "aria-expanded": "false",
+          "aria-label": "퀵메뉴 펼치기"
+        }).blur();
+      }
+
+      function toggleQuick(event) {
+        event.preventDefault();
+
+        if (!$quick.hasClass("is-open")) {
+          $quick.addClass("is-open");
+          $toggle.addClass("is-open").attr({
+            "aria-expanded": "true",
+            "aria-label": "퀵메뉴 접기"
+          });
+          return;
+        }
+
+        closeQuick();
+      }
+
+      function syncQuickMode() {
+        if (isMobileQuick()) {
+          $quick.addClass("is-mobile-quick");
+          $quick.add($toggle).add($topButtonBox).removeClass("is-footer-hidden");
+          closeQuick();
+          return;
+        }
+
+        $quick.removeClass("is-mobile-quick is-open");
+        $toggle.removeClass("is-open").attr({
+          "aria-expanded": "false",
+          "aria-label": "퀵메뉴 펼치기"
+        }).blur();
+        syncFooterQuick();
+      }
+
+      function syncFooterQuick() {
+        if (!$footer.length || isMobileQuick()) {
+          $quick.add($toggle).add($topButtonBox).removeClass("is-footer-hidden");
+          return;
+        }
+
+        var footerTop = $footer.offset().top;
+        var viewportBottom = $window.scrollTop() + $window.height();
+        var shouldFold = viewportBottom >= footerTop + 10;
+
+        $quick.add($toggle).add($topButtonBox).toggleClass("is-footer-hidden", shouldFold);
+
+        if (!shouldFold) {
+          closeQuick();
+        }
+      }
+
+      $toggle.off(".aubeQuick").on("click.aubeQuick", toggleQuick);
+
+      $quick.find("a, button").off(".aubeQuick").on("click.aubeQuick", function (event) {
+        var target = this;
+        $(target).blur();
+
+        if ($(target).hasClass("quick_top_btn")) {
+          event.preventDefault();
+          $("html, body").stop().animate({ scrollTop: 0 }, 500);
+        }
+
+        if (isMobileQuick() || $quick.hasClass("is-footer-hidden")) {
+          window.setTimeout(closeQuick, 90);
+        }
+      });
+
+      $window.off("scroll.aubeQuick").on("scroll.aubeQuick", function () {
+        syncFooterQuick();
+
+        if ((isMobileQuick() || $quick.hasClass("is-footer-hidden")) && $quick.hasClass("is-open")) {
+          closeQuick();
+        }
+      });
+
+      if (mobileQuery) {
+        if (typeof mobileQuery.addEventListener === "function") {
+          mobileQuery.addEventListener("change", syncQuickMode);
+        } else if (typeof mobileQuery.addListener === "function") {
+          mobileQuery.addListener(syncQuickMode);
+        }
+      }
+
+      $window.on("resize.aubeQuickMode", function () {
+        syncQuickMode();
+        syncFooterQuick();
+      });
+      syncQuickMode();
+      syncFooterQuick();
+    }
+
+    configureQuickMenu();
+
     if (typeof Swiper !== "function") {
       return;
     }
